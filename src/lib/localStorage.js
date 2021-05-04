@@ -5,7 +5,3 @@ export function loadFromLocal(key) {
 export function saveToLocal(key, data) {
 	localStorage.setItem(key, JSON.stringify(data))
 }
-
-export function deleteFromLocal(key) {
-	localStorage.removeItem(key)
-}

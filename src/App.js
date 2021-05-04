@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
 import { useState, useEffect } from 'react'
-import { saveToLocal, loadFromLocal, deleteFromLocal } from './lib/localStorage'
+import { saveToLocal, loadFromLocal } from './lib/localStorage'
 import InputFormVocab from './components/InputFormVocab'
 import VocabSets from './components/VocabSets'
 
@@ -33,7 +34,7 @@ export default function App() {
 				submitValue="add to stack"
 				onAddVoc={addVoc}
 			/>
-			<VocabSets vocs={vocs} />
+			<VocabSets vocs={vocs} onDeleteVoc={deleteVoc} />
 		</AppWrapper>
 	)
 
@@ -64,7 +65,18 @@ export default function App() {
 	}
 
 	function addVoc({ englishVocabulary, deutscheVokabel }) {
-		setVocs([{ eng: englishVocabulary, deut: deutscheVokabel }, ...vocs])
+		setVocs([
+			{ id: uuidv4(), eng: englishVocabulary, deut: deutscheVokabel },
+			...vocs,
+		])
+	}
+
+	function deleteVoc(currentId) {
+		const filteredVocs = vocs.filter((voc) => voc.id !== currentId)
+		setVocs(filteredVocs)
+		console.log('click')
+		console.log(vocs[0].id)
+		console.log(currentId)
 	}
 }
 
