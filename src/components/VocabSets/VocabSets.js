@@ -1,30 +1,18 @@
-import styled from 'styled-components/macro'
-import { ReactComponent as Delete } from '../../assets/delete.svg'
-import Button from '../Button'
+// import styled from 'styled-components/macro'
+import Vocab from '../Vocab'
 
-export default function VocabSets({ vocs, onDeleteVoc, id }) {
-	const deleteX = <Delete />
+export default function VocabSets({ vocs, handleDeleteVoc }) {
 	return (
 		<>
-			{vocs.map((voc, vocIndex) => (
-				<VocabSetsWrapper id={voc.id} key={vocIndex}>
-					<div>{voc.eng}</div>
-					<div>{voc.deut}</div>
-					<DeleteButton onClick={() => onDeleteVoc(voc.id)}>
-						{deleteX}
-					</DeleteButton>
-				</VocabSetsWrapper>
+			{vocs.map(({ eng, deut, id }) => (
+				<Vocab
+					id={id}
+					key={id}
+					eng={eng}
+					deut={deut}
+					onDeleteVoc={handleDeleteVoc}
+				/>
 			))}
 		</>
 	)
 }
-
-export const VocabSetsWrapper = styled.div``
-
-export const DeleteButton = styled(Button)`
-	width: 40px;
-	height: 40px;
-	background-color: transparent;
-	stroke: var(--orangeDark);
-	stroke-width: 4;
-`
