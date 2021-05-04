@@ -6,9 +6,11 @@ export default createGlobalStyle`
     --primary: rgba(145,214,242, 1);
     --secondary: rgba(135, 148, 222, 1);
     --orangeLight: rgba(242,148,94, 1);
+    --orangeDisabeld: rgba(242,148,94, 0.5);
     --orangeDark: rgba(242,80,65, 1);
+    --disabled: grey;
 
-    --border-width: 1px
+    --border-width: 2px
   }
 
   * {
@@ -31,20 +33,23 @@ export default createGlobalStyle`
     font-family: inherit;
     font-size: 16px;
     width: 100%;
-    color: var(--primary);
-    border: var(--border-width) solid var(--primary);
+    margin-bottom: 10px;
     padding: 10px;
     background-color: transparent;
+    color: var(--orangeDark);
+    border: var(--border-width) solid var(--orangeDark);
+    
     ::placeholder { 
-      color: var(--primary);
+      color: ${(props) =>
+				props.disabled ? 'var(--orangeLight)' : 'var(--orangeDark)'};
       font-size: 15px;
     }
     &:focus {
       outline: none;
       border-color: transparent;
       -webkit-appearance: none;
-      box-shadow: 0px 0px 4px 1px var(--primary);
-      -webkit-box-shadow: 0px 0px 4px 1px var(--primary);
+      box-shadow: 0px 0px 4px 1px var(--orangeDark);
+      -webkit-box-shadow: 0px 0px 4px 1px var(--orangeDark);
     }
     outline: none !important;
   }
