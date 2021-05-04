@@ -34,7 +34,7 @@ export default function App() {
 				submitValue="add to stack"
 				onAddVoc={addVoc}
 			/>
-			<VocabSets vocs={vocs} onDeleteVoc={deleteVoc} />
+			<VocabSets vocs={vocs} handleDeleteVoc={deleteVoc} />
 		</AppWrapper>
 	)
 
