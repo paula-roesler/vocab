@@ -1,13 +1,19 @@
 import styled from 'styled-components/macro'
 import { useState, useEffect } from 'react'
+import { saveToLocal, loadFromLocal, deleteFromLocal } from './lib/localStorage'
 import InputFormVocab from './components/InputFormVocab'
 import VocabSets from './components/VocabSets'
 
 export default function App() {
 	const [languages, setLanguages] = useState([])
 	const [error, setError] = useState(null)
-	const [vocs, setVocs] = useState([])
+	const [vocs, setVocs] = useState(loadFromLocal('vocs') ?? [])
 
+	useEffect(() => {
+		saveToLocal('vocs', vocs)
+	}, [vocs])
+
+	// PONS API
 	useEffect(() => {
 		getAllVocabulary()
 	}, [])
