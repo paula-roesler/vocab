@@ -74,9 +74,6 @@ export default function App() {
 	function deleteVoc(currentId) {
 		const filteredVocs = vocs.filter((voc) => voc.id !== currentId)
 		setVocs(filteredVocs)
-		console.log('click')
-		console.log(vocs[0].id)
-		console.log(currentId)
 	}
 }
 

@@ -2,9 +2,13 @@
 import Vocab from '../Vocab'
 
 export default function VocabSets({ vocs, handleDeleteVoc }) {
+	const vocsList = vocs.sort((a, b) => {
+		return a.eng > b.eng
+	})
+
 	return (
 		<>
-			{vocs.map(({ eng, deut, id }) => (
+			{vocsList.map(({ eng, deut, id }) => (
 				<Vocab
 					id={id}
 					key={id}
