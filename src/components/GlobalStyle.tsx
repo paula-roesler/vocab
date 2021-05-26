@@ -6,8 +6,8 @@ export default createGlobalStyle`
     --primary: rgba(145,214,242, 1);
     --secondary: rgba(135, 148, 222, 1);
     --orangeLight: rgba(242,148,94, 1);
-    --orangeDisabeld: rgba(242,148,94, 0.5);
-    --orangeDark: rgba(242,80,65, 1);
+    --orangeDisabeld: #f58223;
+    --orangeDark: #fb713a;
     --disabled: grey;
 
     --border-width: 2px
