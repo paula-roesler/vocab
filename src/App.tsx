@@ -14,7 +14,7 @@ export default function App() {
 		saveToLocal('vocs', vocs)
 	}, [vocs])
 
-	// PONS API
+	// Anbindung an PONS API
 	useEffect(() => {
 		getAllVocabulary()
 	}, [])
