@@ -1,5 +1,15 @@
 import styled from 'styled-components/macro'
 
+type InputFormVocabProps = {
+	placeholderTextEnglish: string
+	placeholderTextGerman: string
+	disabledEn: any
+	disabledDe: any
+	disabledSubmit: any
+	submitValue: any
+	onAddVoc: any
+}
+
 export default function InputFormVocab({
 	placeholderTextEnglish,
 	placeholderTextGerman,
@@ -8,7 +18,7 @@ export default function InputFormVocab({
 	disabledSubmit,
 	submitValue,
 	onAddVoc,
-}) {
+}: InputFormVocabProps) {
 	return (
 		<>
 			<InputForm onSubmit={handleSubmit}>
